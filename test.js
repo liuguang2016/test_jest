@@ -1,7 +1,23 @@
-var result = add(3,3);
+function expected(result){
+  const toBe = (actual)=>{
+    if(result !== actual){
+      throw Error(`预期值(${actual})与结果${result}不相等`);
+    }
 
-expected = 6;
+  };
 
-if(expected !==result){
-  throw Error(`加法验证不通过:3+3应该等于${expected},结果却是${result}`);
+  return {toBe};
 }
+
+const test = (descripte,fn)=>{
+  try {
+    fn();
+    console.log("测试通过");
+  } catch (error) {
+    console.log(`测试没有通过,${error}`);
+  }
+}
+
+test("加法方法的测试3+2",()=>{
+  expected(add(3,2)).toBe(6);
+});
