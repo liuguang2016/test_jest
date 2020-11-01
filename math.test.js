@@ -1,5 +1,4 @@
-const math = require("./math");
-const { add, minus, multi } = math;
+import { add, minus, multi } from "./math";
 
 test("加法方法的测试3+2",()=>{
   expect(add(3,2)).toBe(5);
